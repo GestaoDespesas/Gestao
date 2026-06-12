@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Ajuda — Gastos BR</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f6fa;
+      color: #222;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #1976D2, #0D47A1);
+      color: #fff;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    header .logo { font-size: 40px; margin-bottom: 8px; }
+    header h1 { font-size: 26px; font-weight: 700; }
+    header p { font-size: 14px; opacity: 0.8; margin-top: 6px; }
+    .container { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+
+    /* Section titles */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1976D2;
+      margin: 28px 0 12px;
+    }
+
+    /* FAQ accordion */
+    .faq-item {
+      background: #fff;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #222;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-question:hover { background: #F5F9FF; }
+    .faq-arrow {
+      font-size: 18px;
+      color: #1976D2;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 15px;
+      color: #555;
+    }
+    .faq-answer ul { padding-left: 20px; margin-top: 6px; }
+    .faq-answer li { margin-bottom: 5px; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    /* Quick tips */
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .tip-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tip-card .tip-icon { font-size: 28px; margin-bottom: 8px; }
+    .tip-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #222; }
+    .tip-card p { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* Contact */
+    .contact-card {
+      background: linear-gradient(135deg, #1976D2, #0D47A1);
+      border-radius: 16px;
+      padding: 28px;
+      color: #fff;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .contact-card h2 { font-size: 18px; margin-bottom: 8px; }
+    .contact-card p { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+    .contact-card a {
+      display: inline-block;
+      background: #fff;
+      color: #1976D2;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      padding: 24px 0 32px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">💸</div>
+  <h1>Central de Ajuda</h1>
+  <p>Gastos BR &nbsp;·&nbsp; Encontre respostas rápidas</p>
+</header>
+
+<div class="container">
+
+  <!-- Quick tips -->
+  <div class="section-title">Primeiros passos</div>
+  <div class="tip-grid">
+    <div class="tip-card">
+      <div class="tip-icon">➕</div>
+      <h3>Adicionar transação</h3>
+      <p>Toque nos botões Despesa, Receita ou Transferência na tela inicial para registrar uma nova movimentação.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏦</div>
+      <h3>Criar uma conta</h3>
+      <p>Vá em Mais → Contas → toque no "+" para adicionar uma conta bancária, carteira ou cartão.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🗂️</div>
+      <h3>Categorias</h3>
+      <p>Vá em Mais → Categorias para criar categorias personalizadas e organizar seus gastos.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎯</div>
+      <h3>Metas e Orçamentos</h3>
+      <p>Defina metas de economia e orçamentos mensais por categoria na aba Mais.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📊</div>
+      <h3>Relatórios</h3>
+      <p>Acesse os relatórios pelo botão na tela inicial para ver gráficos de gastos por período e categoria.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔄</div>
+      <h3>Trocar de mês</h3>
+      <p>Use as setas ‹ › no topo da tela inicial para navegar entre os meses e ver o histórico.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-title">Perguntas frequentes</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Preciso criar uma conta para usar o app?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Não. O Gastos BR funciona completamente offline e sem cadastro. Basta inserir seu nome na configuração inicial e começar a usar. Nenhum e-mail ou senha é necessário.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Meus dados ficam salvos na nuvem?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Não. Todos os dados são armazenados localmente no seu dispositivo. Isso significa total privacidade, mas também que os dados podem ser perdidos se você trocar de celular sem exportar antes. <strong>Recomendamos exportar seus dados regularmente</strong> (Configurações → Exportar dados → CSV).
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como fazer backup dos meus dados?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Vá em <strong>Mais → Configurações → Exportar dados</strong>. O app irá gerar um arquivo CSV com todas as suas transações que você pode salvar no armazenamento do celular ou compartilhar via WhatsApp, e-mail, etc. Para restaurar em outro dispositivo, use a opção Importar dados.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como ativar o bloqueio biométrico?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Vá em <strong>Mais → Configurações → Segurança</strong> e ative a opção "Bloqueio biométrico". O app usará a impressão digital ou Face ID do seu celular para proteger o acesso. Certifique-se de ter biometria configurada nas configurações do Android.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como ocultar o saldo na tela inicial?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Vá em <strong>Mais → Configurações</strong> e ative a opção "Ocultar saldo". O saldo será substituído por "••••••" na tela inicial para mais privacidade.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      O que é o plano Premium?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      O Premium remove todas as limitações da versão gratuita e os anúncios. Com o Premium você tem:
+      <ul>
+        <li>Transações, contas, metas, orçamentos e categorias ilimitados</li>
+        <li>Relatórios avançados</li>
+        <li>Exportação de dados em CSV</li>
+        <li>Sem anúncios</li>
+      </ul>
+      Disponível nos planos Mensal, Anual ou Vitalício. Acesse em <strong>Mais → Premium</strong>.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como cancelar a assinatura Premium?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      A assinatura é gerenciada pela Google Play Store. Para cancelar:
+      <ul>
+        <li>Abra o Google Play Store</li>
+        <li>Toque no ícone do seu perfil → Pagamentos e assinaturas → Assinaturas</li>
+        <li>Selecione "Gastos BR" e toque em Cancelar assinatura</li>
+      </ul>
+      O acesso Premium permanece até o fim do período pago.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Posso usar o app em mais de um celular?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Sim, mas os dados de cada celular são independentes (não há sincronização automática). Você pode exportar os dados de um dispositivo e importar no outro usando a função Exportar/Importar CSV.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Atingi o limite de transações. O que fazer?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      A versão gratuita permite até 100 transações. Para continuar registrando sem limite, assine o <strong>Premium</strong> (Mais → Premium). Como alternativa, você pode excluir transações antigas para liberar espaço.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como excluir todos os dados do app?
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-answer">
+      Vá em <strong>Mais → Configurações → Apagar todos os dados</strong>. Essa ação é <strong>irreversível</strong> — todos os dados serão removidos permanentemente do dispositivo. Exporte seus dados antes se quiser mantê-los.
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <h2>Ainda tem dúvidas?</h2>
+    <p>Entre em contato com nosso suporte. Respondemos em até 48 horas.</p>
+    <a href="mailto:raustorevip@gmail.com">Enviar e-mail</a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Gastos BR. Todos os direitos reservados.
+</footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
