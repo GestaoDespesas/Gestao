@@ -3,130 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de Privacidade — Gastos BR</title>
+  <title>Política de Privacidade — GestãoBR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f6fa;
-      color: #222;
-      line-height: 1.7;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F7F9F7; color: #1A1A1A; line-height: 1.7; }
+
+    nav {
+      background: #fff; border-bottom: 1px solid #E0E0E0;
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 10;
     }
+    .nav-logo { font-weight: 800; font-size: 18px; color: #1B5E20; text-decoration: none; }
+    .nav-back { font-size: 14px; color: #2E7D32; text-decoration: none; font-weight: 500; }
+    .nav-back:hover { text-decoration: underline; }
+
     header {
-      background: linear-gradient(135deg, #1976D2, #0D47A1);
-      color: #fff;
-      padding: 40px 24px 32px;
-      text-align: center;
+      background: linear-gradient(135deg, #1B5E20 0%, #43A047 100%);
+      color: #fff; padding: 56px 24px 48px; text-align: center;
     }
-    header .logo { font-size: 40px; margin-bottom: 8px; }
-    header h1 { font-size: 26px; font-weight: 700; }
-    header p { font-size: 14px; opacity: 0.8; margin-top: 6px; }
-    .container { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+    header .icon { font-size: 48px; margin-bottom: 16px; }
+    header h1 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 10px; }
+    header p { font-size: 15px; opacity: .85; max-width: 480px; margin: 0 auto; }
+    header .updated {
+      display: inline-block; margin-top: 18px;
+      background: rgba(255,255,255,0.2); border-radius: 20px;
+      padding: 4px 14px; font-size: 13px;
+    }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 40px 24px 80px; }
+
     .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      background: #fff; border-radius: 16px;
+      border: 1px solid #E8F5E9;
+      padding: 32px; margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    h2 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1976D2;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .card-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 2px solid #E8F5E9;
     }
-    h2 .icon { font-size: 20px; }
-    p { font-size: 15px; color: #444; margin-bottom: 10px; }
-    ul { padding-left: 20px; margin-bottom: 10px; }
-    li { font-size: 15px; color: #444; margin-bottom: 6px; }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #E8F5E9; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .card h2 { font-size: 18px; font-weight: 700; color: #1B5E20; }
+    .card p { font-size: 15px; color: #444; margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { padding-left: 20px; }
+    .card ul li { font-size: 15px; color: #444; margin-bottom: 8px; }
+    .card ul li::marker { color: #2E7D32; }
+
     .highlight {
-      background: #E3F2FD;
-      border-left: 4px solid #1976D2;
-      padding: 14px 18px;
-      border-radius: 8px;
-      font-size: 15px;
-      color: #0D47A1;
-      margin-bottom: 10px;
+      background: #E8F5E9; border-left: 4px solid #2E7D32;
+      border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+      font-size: 15px; color: #1B5E20; font-weight: 500;
     }
+
+    .contact-box {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
+      color: #fff; border-radius: 16px; padding: 32px; text-align: center;
+    }
+    .contact-box h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .contact-box p { opacity: .85; margin-bottom: 18px; font-size: 15px; }
+    .contact-box a {
+      display: inline-block; background: #fff; color: #1B5E20;
+      padding: 12px 28px; border-radius: 10px; text-decoration: none;
+      font-weight: 700; font-size: 15px;
+    }
+
     footer {
-      text-align: center;
-      font-size: 13px;
-      color: #888;
-      padding-bottom: 32px;
+      text-align: center; padding: 32px 24px;
+      background: #111; color: #888; font-size: 13px;
     }
-    a { color: #1976D2; text-decoration: none; }
+    footer a { color: #aaa; text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
+<nav>
+  <a class="nav-logo" href="index.html">GestãoBR</a>
+  <a class="nav-back" href="index.html">← Voltar ao início</a>
+</nav>
+
 <header>
-  <div class="logo">💸</div>
+  <div class="icon">🔒</div>
   <h1>Política de Privacidade</h1>
-  <p>Gastos BR &nbsp;·&nbsp; Última atualização: junho de 2026</p>
+  <p>Saiba como o GestãoBR coleta, usa e protege suas informações.</p>
+  <div class="updated">Última atualização: Junho de 2026</div>
 </header>
 
 <div class="container">
 
-  <div class="highlight">
-    Sua privacidade é nossa prioridade. O Gastos BR foi criado para funcionar <strong>offline, sem criar conta</strong> — seus dados financeiros ficam armazenados apenas no seu dispositivo.
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📱</div>
+      <h2>1. Sobre o GestãoBR</h2>
+    </div>
+    <p>O GestãoBR é um aplicativo de controle financeiro pessoal desenvolvido para usuários brasileiros. Nosso compromisso é oferecer uma ferramenta útil, transparente e que respeite integralmente a privacidade dos nossos usuários.</p>
+    <p>Esta Política de Privacidade descreve como tratamos as informações geradas durante o uso do aplicativo GestãoBR, disponível na Google Play Store.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">📱</span> Dados armazenados localmente</h2>
-    <p>O Gastos BR armazena <strong>somente no seu dispositivo</strong>:</p>
+    <div class="card-header">
+      <div class="card-icon">📦</div>
+      <h2>2. Dados que coletamos</h2>
+    </div>
+    <div class="highlight">✅ Seus dados financeiros (transações, metas, orçamentos) são armazenados APENAS no seu dispositivo e nunca enviados para nossos servidores.</div>
+    <p>O aplicativo pode coletar as seguintes informações:</p>
     <ul>
-      <li>Nome de exibição que você escolheu</li>
-      <li>Transações financeiras (receitas, despesas, transferências)</li>
-      <li>Contas, categorias, metas e orçamentos</li>
-      <li>Foto de perfil (se adicionada)</li>
-      <li>Configurações do app</li>
-    </ul>
-    <p>Esses dados <strong>nunca são enviados para nenhum servidor</strong> sem sua ação explícita.</p>
-  </div>
-
-  <div class="card">
-    <h2><span class="icon">☁️</span> Serviços de terceiros</h2>
-    <p>O app utiliza os seguintes serviços do Google para melhorar a experiência:</p>
-    <ul>
-      <li><strong>Firebase Analytics</strong> — coleta dados de uso anônimos (telas visitadas, ações realizadas) para entendermos como o app é usado. Nenhum dado financeiro é coletado.</li>
-      <li><strong>Firebase Crashlytics</strong> — registra erros e travamentos automaticamente para corrigirmos problemas. Nenhum dado financeiro é incluído nos relatórios.</li>
-      <li><strong>Firebase Remote Config</strong> — permite atualizar configurações do app remotamente sem necessidade de atualizar o aplicativo.</li>
-      <li><strong>Google AdMob</strong> — exibe anúncios para usuários gratuitos. O AdMob pode coletar dados de publicidade conforme a <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidade do Google</a>. Usuários Premium não visualizam anúncios.</li>
+      <li><strong>Nome de usuário:</strong> Apenas para personalizar a saudação no app. Não é enviado para nenhum servidor.</li>
+      <li><strong>Dados de transações:</strong> Despesas, receitas e transferências registradas por você. Armazenados localmente no dispositivo.</li>
+      <li><strong>Dados de diagnóstico:</strong> Relatórios de falhas enviados ao Firebase Crashlytics para melhorar a estabilidade do app.</li>
+      <li><strong>Dados de uso anônimos:</strong> Métricas agregadas pelo Firebase Analytics para entender como o app é utilizado.</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">💳</span> Compras in-app (Premium)</h2>
-    <p>As assinaturas Premium são processadas pela <strong>Google Play Store</strong>. O Gastos BR não coleta nem armazena dados de cartão de crédito ou informações de pagamento. Todo o processamento de pagamento é feito pelo Google.</p>
+    <div class="card-header">
+      <div class="card-icon">🚫</div>
+      <h2>3. O que NÃO coletamos</h2>
+    </div>
+    <p>Comprometemo-nos a <strong>nunca coletar</strong>:</p>
+    <ul>
+      <li>CPF, RG ou qualquer documento de identificação</li>
+      <li>Dados bancários, número de cartão ou senhas</li>
+      <li>E-mail ou número de telefone</li>
+      <li>Localização geográfica</li>
+      <li>Contatos do dispositivo</li>
+      <li>Fotos além das anexadas voluntariamente a transações</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">🔒</span> Segurança</h2>
-    <p>O app suporta <strong>bloqueio biométrico</strong> (impressão digital / Face ID) para proteger o acesso às suas informações financeiras. Esse recurso utiliza apenas as APIs nativas do Android — nenhuma biometria é armazenada ou transmitida pelo app.</p>
+    <div class="card-header">
+      <div class="card-icon">🎯</div>
+      <h2>4. Como usamos as informações</h2>
+    </div>
+    <p>As informações coletadas são usadas exclusivamente para:</p>
+    <ul>
+      <li>Garantir o funcionamento correto do aplicativo</li>
+      <li>Identificar e corrigir falhas técnicas (Crashlytics)</li>
+      <li>Melhorar a experiência do usuário com base em dados anônimos de uso</li>
+      <li>Exibir anúncios relevantes para usuários do plano gratuito (via StartApp SDK)</li>
+      <li>Personalizar configurações remotas do app via Firebase Remote Config</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">👤</span> Crianças</h2>
-    <p>O Gastos BR não é direcionado a crianças menores de 13 anos e não coleta intencionalmente dados pessoais de crianças.</p>
+    <div class="card-header">
+      <div class="card-icon">📢</div>
+      <h2>5. Publicidade</h2>
+    </div>
+    <p>O GestãoBR exibe anúncios para usuários do plano gratuito por meio do <strong>StartApp SDK</strong> (Start.io). Ao usar o app gratuitamente, você concorda com a exibição de anúncios.</p>
+    <ul>
+      <li>Usuários <strong>Premium</strong> não visualizam nenhum anúncio.</li>
+      <li>O StartApp pode coletar dados de dispositivo para personalização de anúncios conforme sua própria política de privacidade.</li>
+      <li>Não compartilhamos seus dados financeiros com anunciantes.</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">📤</span> Exportação e exclusão de dados</h2>
-    <p>Você pode exportar seus dados a qualquer momento em formato CSV (Configurações → Exportar dados). Para excluir todos os dados, utilize a opção "Apagar todos os dados" nas Configurações do app — isso remove permanentemente todas as informações do dispositivo.</p>
+    <div class="card-header">
+      <div class="card-icon">🔥</div>
+      <h2>6. Serviços do Firebase (Google)</h2>
+    </div>
+    <p>Utilizamos os seguintes serviços do Firebase:</p>
+    <ul>
+      <li><strong>Firebase Crashlytics:</strong> Coleta relatórios de falhas anônimos para melhorar a estabilidade.</li>
+      <li><strong>Firebase Analytics:</strong> Métricas de uso anônimas e agregadas.</li>
+      <li><strong>Firebase Remote Config:</strong> Permite atualizar configurações do app sem nova versão.</li>
+    </ul>
+    <p>Todos esses serviços seguem a Política de Privacidade do Google.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">✉️</span> Contato</h2>
-    <p>Dúvidas sobre esta política? Entre em contato pelo e-mail: <a href="mailto:raustorevip@gmail.com">raustorevip@gmail.com</a></p>
+    <div class="card-header">
+      <div class="card-icon">🔐</div>
+      <h2>7. Segurança dos dados</h2>
+    </div>
+    <p>Adotamos as seguintes medidas de segurança:</p>
+    <ul>
+      <li>Todos os dados financeiros ficam armazenados localmente no dispositivo do usuário</li>
+      <li>O app suporta autenticação biométrica (impressão digital / Face ID)</li>
+      <li>Nenhuma dado financeiro é transmitido pela internet</li>
+      <li>O tráfego de rede do app usa exclusivamente HTTPS (sem texto claro)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👤</div>
+      <h2>8. Seus direitos</h2>
+    </div>
+    <p>Você tem o direito de:</p>
+    <ul>
+      <li><strong>Apagar seus dados:</strong> Acesse Configurações → Perfil → Excluir conta para apagar todos os dados do dispositivo.</li>
+      <li><strong>Exportar seus dados:</strong> Use a função de exportação CSV (disponível no plano Premium) para obter uma cópia de todas as suas transações.</li>
+      <li><strong>Revogar permissões:</strong> Acesse as configurações do Android para revogar permissões concedidas ao app a qualquer momento.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👶</div>
+      <h2>9. Crianças</h2>
+    </div>
+    <p>O GestãoBR não é direcionado a menores de 13 anos. Não coletamos intencionalmente informações de crianças. Se você acredita que seu filho forneceu informações ao app, entre em contato conosco para que possamos tomar as medidas necessárias.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📝</div>
+      <h2>10. Alterações nesta política</h2>
+    </div>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando fizermos alterações significativas, notificaremos os usuários dentro do próprio aplicativo. A data de "Última atualização" no topo desta página sempre refletirá a versão mais recente.</p>
+    <p>O uso contínuo do aplicativo após as alterações constitui aceitação da nova política.</p>
+  </div>
+
+  <div class="contact-box">
+    <h2>Dúvidas sobre privacidade?</h2>
+    <p>Entre em contato conosco. Respondemos em até 48 horas.</p>
+    <a href="mailto:hotro.vieclamls@gmail.com">📧 Enviar e-mail</a>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 Gastos BR. Todos os direitos reservados.
+  <div style="margin-bottom:12px;">
+    <a href="index.html">Início</a>
+    <a href="terms-of-service.html">Termos de Uso</a>
+    <a href="help-center.html">Central de Ajuda</a>
+  </div>
+  © 2026 GestãoBR. Todos os direitos reservados.
 </footer>
 
 </body>

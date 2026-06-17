@@ -3,192 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Termos de Uso — Gastos BR</title>
+  <title>Termos de Uso — GestãoBR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f6fa;
-      color: #222;
-      line-height: 1.7;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F7F9F7; color: #1A1A1A; line-height: 1.7; }
+    nav {
+      background: #fff; border-bottom: 1px solid #E0E0E0;
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 10;
     }
+    .nav-logo { font-weight: 800; font-size: 18px; color: #1B5E20; text-decoration: none; }
+    .nav-back { font-size: 14px; color: #2E7D32; text-decoration: none; font-weight: 500; }
+    .nav-back:hover { text-decoration: underline; }
     header {
-      background: linear-gradient(135deg, #1976D2, #0D47A1);
-      color: #fff;
-      padding: 40px 24px 32px;
-      text-align: center;
+      background: linear-gradient(135deg, #1B5E20 0%, #43A047 100%);
+      color: #fff; padding: 56px 24px 48px; text-align: center;
     }
-    header .logo { font-size: 40px; margin-bottom: 8px; }
-    header h1 { font-size: 26px; font-weight: 700; }
-    header p { font-size: 14px; opacity: 0.8; margin-top: 6px; }
-    .container { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+    header .icon { font-size: 48px; margin-bottom: 16px; }
+    header h1 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 10px; }
+    header p { font-size: 15px; opacity: .85; max-width: 480px; margin: 0 auto; }
+    header .updated {
+      display: inline-block; margin-top: 18px;
+      background: rgba(255,255,255,0.2); border-radius: 20px;
+      padding: 4px 14px; font-size: 13px;
+    }
+    .container { max-width: 780px; margin: 0 auto; padding: 40px 24px 80px; }
     .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      background: #fff; border-radius: 16px;
+      border: 1px solid #E8F5E9; padding: 32px; margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    h2 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1976D2;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .card-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 2px solid #E8F5E9;
     }
-    h2 .icon { font-size: 20px; }
-    p { font-size: 15px; color: #444; margin-bottom: 10px; }
-    ul { padding-left: 20px; margin-bottom: 10px; }
-    li { font-size: 15px; color: #444; margin-bottom: 6px; }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #E8F5E9; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .card h2 { font-size: 18px; font-weight: 700; color: #1B5E20; }
+    .card p { font-size: 15px; color: #444; margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { padding-left: 20px; }
+    .card ul li { font-size: 15px; color: #444; margin-bottom: 8px; }
+    .card ul li::marker { color: #2E7D32; }
     .highlight {
-      background: #E3F2FD;
-      border-left: 4px solid #1976D2;
-      padding: 14px 18px;
-      border-radius: 8px;
-      font-size: 15px;
-      color: #0D47A1;
-      margin-bottom: 20px;
+      background: #E8F5E9; border-left: 4px solid #2E7D32;
+      border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+      font-size: 15px; color: #1B5E20; font-weight: 500;
     }
-    .premium-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 8px;
-      font-size: 14px;
+    .warning {
+      background: #FFF8E1; border-left: 4px solid #F9A825;
+      border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+      font-size: 15px; color: #5D4037;
     }
-    .premium-table th {
-      background: #1976D2;
-      color: #fff;
-      padding: 10px 14px;
-      text-align: left;
+    .contact-box {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
+      color: #fff; border-radius: 16px; padding: 32px; text-align: center;
     }
-    .premium-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #eee;
+    .contact-box h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .contact-box p { opacity: .85; margin-bottom: 18px; font-size: 15px; }
+    .contact-box a {
+      display: inline-block; background: #fff; color: #1B5E20;
+      padding: 12px 28px; border-radius: 10px; text-decoration: none;
+      font-weight: 700; font-size: 15px;
     }
-    .premium-table tr:last-child td { border-bottom: none; }
     footer {
-      text-align: center;
-      font-size: 13px;
-      color: #888;
-      padding-bottom: 32px;
+      text-align: center; padding: 32px 24px;
+      background: #111; color: #888; font-size: 13px;
     }
-    a { color: #1976D2; text-decoration: none; }
+    footer a { color: #aaa; text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
+<nav>
+  <a class="nav-logo" href="index.html">GestãoBR</a>
+  <a class="nav-back" href="index.html">← Voltar ao início</a>
+</nav>
+
 <header>
-  <div class="logo">💸</div>
+  <div class="icon">📋</div>
   <h1>Termos de Uso</h1>
-  <p>Gastos BR &nbsp;·&nbsp; Última atualização: junho de 2026</p>
+  <p>Leia com atenção antes de usar o GestãoBR. Ao usar o app, você concorda com estes termos.</p>
+  <div class="updated">Última atualização: Junho de 2026</div>
 </header>
 
 <div class="container">
 
-  <div class="highlight">
-    Ao instalar ou usar o Gastos BR, você concorda com estes Termos de Uso. Leia com atenção antes de utilizar o aplicativo.
+  <div class="card">
+    <div class="card-header"><div class="card-icon">👋</div><h2>1. Aceitação dos Termos</h2></div>
+    <p>Bem-vindo ao GestãoBR! Ao baixar, instalar ou usar o aplicativo GestãoBR ("App"), você concorda em cumprir estes Termos de Uso. Se não concordar com algum dos termos, não utilize o App.</p>
+    <p>Estes termos se aplicam a todos os usuários do GestãoBR, sejam usuários do plano gratuito ou Premium.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">📋</span> 1. Sobre o aplicativo</h2>
-    <p>O <strong>Gastos BR</strong> é um aplicativo de controle financeiro pessoal para Android. Ele permite registrar receitas, despesas e transferências, acompanhar metas e orçamentos, além de visualizar relatórios de gastos.</p>
-    <p>O app funciona <strong>offline</strong> e não requer criação de conta. Os dados são armazenados localmente no dispositivo do usuário.</p>
-  </div>
-
-  <div class="card">
-    <h2><span class="icon">✅</span> 2. Uso permitido</h2>
-    <p>Você pode usar o Gastos BR para:</p>
+    <div class="card-header"><div class="card-icon">📱</div><h2>2. Descrição do Serviço</h2></div>
+    <p>O GestãoBR é um aplicativo de controle financeiro pessoal que permite:</p>
     <ul>
-      <li>Controle financeiro pessoal</li>
-      <li>Registro de transações financeiras próprias</li>
-      <li>Exportação dos seus dados em CSV para uso pessoal</li>
+      <li>Registrar despesas, receitas e transferências</li>
+      <li>Criar e acompanhar metas de economia</li>
+      <li>Definir orçamentos por categoria</li>
+      <li>Visualizar relatórios e gráficos financeiros</li>
+      <li>Gerenciar múltiplas contas financeiras</li>
+      <li>Exportar e importar dados em formato CSV (Premium)</li>
     </ul>
-    <p>É proibido:</p>
+    <div class="highlight">O GestãoBR é uma ferramenta de organização pessoal. Não somos uma instituição financeira e não prestamos serviços bancários ou de investimento.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-icon">✅</div><h2>3. Uso Permitido</h2></div>
+    <p>Você pode usar o GestãoBR para:</p>
     <ul>
-      <li>Usar o app para atividades ilegais ou fraudulentas</li>
-      <li>Tentar reverter ou modificar o código do aplicativo</li>
-      <li>Usar o app para registrar dados de terceiros sem autorização</li>
+      <li>Controle financeiro pessoal ou familiar</li>
+      <li>Acompanhamento de gastos e receitas do dia a dia</li>
+      <li>Planejamento e acompanhamento de metas financeiras pessoais</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">⚡</span> 3. Versão gratuita e limitações</h2>
-    <p>A versão gratuita inclui:</p>
+    <div class="card-header"><div class="card-icon">🚫</div><h2>4. Uso Proibido</h2></div>
+    <p>É estritamente proibido:</p>
     <ul>
-      <li>Até <strong>100 transações</strong></li>
-      <li>Até <strong>2 contas</strong></li>
-      <li>Até <strong>3 orçamentos</strong> e <strong>3 metas</strong></li>
-      <li>Até <strong>5 categorias personalizadas</strong></li>
-      <li>Exibição de anúncios</li>
+      <li>Usar o app para fins ilegais ou fraudulentos</li>
+      <li>Tentar fazer engenharia reversa, descompilar ou modificar o App</li>
+      <li>Usar o App para gerenciar finanças de terceiros sem autorização</li>
+      <li>Tentar burlar as proteções do sistema de assinatura Premium</li>
+      <li>Distribuir ou revender o App ou suas funcionalidades</li>
     </ul>
-    <p>Os limites podem ser ajustados via atualização do app ou configuração remota.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">👑</span> 4. Planos Premium</h2>
-    <p>O Premium remove todas as limitações e anúncios. Planos disponíveis:</p>
-    <table class="premium-table">
-      <tr>
-        <th>Plano</th>
-        <th>Preço padrão</th>
-        <th>Cobrança</th>
-      </tr>
-      <tr>
-        <td>Mensal</td>
-        <td>R$ 19,90</td>
-        <td>Recorrente mensal</td>
-      </tr>
-      <tr>
-        <td>Anual</td>
-        <td>R$ 149,90</td>
-        <td>Recorrente anual</td>
-      </tr>
-      <tr>
-        <td>Vitalício</td>
-        <td>R$ 499,00</td>
-        <td>Pagamento único</td>
-      </tr>
-    </table>
-    <p style="margin-top:12px;">Os preços podem variar conforme promoções e são cobrados pela <strong>Google Play Store</strong>. O cancelamento pode ser feito a qualquer momento nas configurações da sua conta Google.</p>
+    <div class="card-header"><div class="card-icon">👑</div><h2>5. Plano Gratuito e Premium</h2></div>
+    <p><strong>Plano Gratuito:</strong></p>
+    <ul>
+      <li>Disponível a todos os usuários sem custo</li>
+      <li>Limite de 3 metas e 3 orçamentos simultâneos</li>
+      <li>Exibição de anúncios pelo StartApp SDK</li>
+      <li>Relatórios básicos (gráfico de pizza por categoria)</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>Plano Premium:</strong></p>
+    <ul>
+      <li>Disponível nas modalidades Mensal (R$19,90), Anual (R$149,90) e Vitalício (R$499,00)</li>
+      <li>Metas e orçamentos ilimitados</li>
+      <li>Relatórios avançados: gráfico de barras 6 meses e linha de evolução do saldo</li>
+      <li>Exportação e importação CSV completa</li>
+      <li>Experiência 100% sem anúncios</li>
+    </ul>
+    <div class="warning">⚠️ As compras Premium são processadas pela Google Play Store. Reembolsos seguem a política da Google Play. Não temos acesso aos dados de pagamento.</div>
   </div>
 
   <div class="card">
-    <h2><span class="icon">🔄</span> 5. Reembolsos</h2>
-    <p>Reembolsos são gerenciados pela <strong>Google Play Store</strong> conforme a política de reembolso do Google. O Gastos BR não processa reembolsos diretamente. Para solicitar, acesse as configurações da Google Play.</p>
+    <div class="card-header"><div class="card-icon">💳</div><h2>6. Pagamentos e Cancelamento</h2></div>
+    <p>As assinaturas Premium são gerenciadas diretamente pela Google Play Store:</p>
+    <ul>
+      <li><strong>Mensal:</strong> Cobrado mensalmente, cancele a qualquer momento nas configurações da Play Store.</li>
+      <li><strong>Anual:</strong> Cobrado anualmente. Cancele antes da renovação para evitar novo débito.</li>
+      <li><strong>Vitalício:</strong> Pagamento único, sem renovação automática.</li>
+    </ul>
+    <p>Após o cancelamento, você mantém acesso Premium até o fim do período pago. Para solicitar reembolso, entre em contato com o suporte da Google Play.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">⚠️</span> 6. Responsabilidade sobre os dados</h2>
-    <p>O Gastos BR armazena dados apenas no dispositivo do usuário. <strong>Não realizamos backup automático</strong>. Em caso de perda, troca ou redefinição do dispositivo, os dados podem ser perdidos permanentemente.</p>
-    <p>Recomendamos exportar seus dados regularmente usando a função de exportação CSV disponível nas Configurações.</p>
+    <div class="card-header"><div class="card-icon">💾</div><h2>7. Dados e Responsabilidade</h2></div>
+    <p>Todos os dados financeiros são armazenados localmente no dispositivo. Por isso:</p>
+    <ul>
+      <li>A <strong>perda do dispositivo</strong> ou <strong>desinstalação do app</strong> pode resultar na perda permanente dos dados (exceto se exportados via CSV).</li>
+      <li>Recomendamos exportar seus dados regularmente utilizando a função CSV (Premium).</li>
+      <li>Não nos responsabilizamos por perda de dados devido a falhas do dispositivo, formatação ou desinstalação.</li>
+    </ul>
+    <div class="highlight">💡 Dica: Faça exportações CSV periódicas para manter um backup dos seus dados financeiros.</div>
   </div>
 
   <div class="card">
-    <h2><span class="icon">🔧</span> 7. Disponibilidade e atualizações</h2>
-    <p>Nos reservamos o direito de modificar, suspender ou encerrar o aplicativo a qualquer momento. Atualizações podem alterar funcionalidades, limites ou interface sem aviso prévio.</p>
+    <div class="card-header"><div class="card-icon">⚖️</div><h2>8. Limitação de Responsabilidade</h2></div>
+    <p>O GestãoBR é fornecido "como está". Não garantimos que o app estará disponível ininterruptamente ou livre de erros.</p>
+    <p>Não nos responsabilizamos por:</p>
+    <ul>
+      <li>Decisões financeiras tomadas com base nas informações exibidas no app</li>
+      <li>Perda de dados por falha do dispositivo ou desinstalação</li>
+      <li>Danos indiretos decorrentes do uso do aplicativo</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h2><span class="icon">⚖️</span> 8. Limitação de responsabilidade</h2>
-    <p>O Gastos BR é fornecido "como está", sem garantias de qualquer tipo. Não nos responsabilizamos por perdas financeiras decorrentes do uso ou mau uso do aplicativo, ou pela perda de dados armazenados no dispositivo.</p>
+    <div class="card-header"><div class="card-icon">🔄</div><h2>9. Atualizações dos Termos</h2></div>
+    <p>Podemos atualizar estes Termos de Uso periodicamente. Notificaremos os usuários sobre mudanças significativas dentro do próprio aplicativo. O uso contínuo do App após as mudanças constitui aceitação dos novos termos.</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">📝</span> 9. Alterações nos termos</h2>
-    <p>Podemos atualizar estes Termos periodicamente. O uso continuado do app após as alterações constitui aceitação dos novos termos. A data da última atualização está sempre indicada no topo desta página.</p>
+    <div class="card-header"><div class="card-icon">🇧🇷</div><h2>10. Lei Aplicável</h2></div>
+    <p>Estes Termos de Uso são regidos pelas leis brasileiras, em conformidade com o Código de Defesa do Consumidor (Lei nº 8.078/1990) e a Lei Geral de Proteção de Dados — LGPD (Lei nº 13.709/2018).</p>
+    <p>Qualquer disputa será resolvida nos tribunais competentes do Brasil.</p>
   </div>
 
-  <div class="card">
-    <h2><span class="icon">✉️</span> 10. Contato</h2>
-    <p>Dúvidas ou sugestões: <a href="mailto:raustorevip@gmail.com">raustorevip@gmail.com</a></p>
+  <div class="contact-box">
+    <h2>Dúvidas sobre os Termos?</h2>
+    <p>Nossa equipe está pronta para esclarecer qualquer questão.</p>
+    <a href="mailto:hotro.vieclamls@gmail.com">📧 Entrar em contato</a>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 Gastos BR. Todos os direitos reservados.
+  <div style="margin-bottom:12px;">
+    <a href="index.html">Início</a>
+    <a href="privacy-policy.html">Política de Privacidade</a>
+    <a href="help-center.html">Central de Ajuda</a>
+  </div>
+  © 2026 GestãoBR. Todos os direitos reservados.
 </footer>
 
 </body>

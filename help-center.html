@@ -3,302 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Central de Ajuda — Gastos BR</title>
+  <title>Central de Ajuda — GestãoBR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f6fa;
-      color: #222;
-      line-height: 1.7;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F7F9F7; color: #1A1A1A; line-height: 1.7; }
+    nav {
+      background: #fff; border-bottom: 1px solid #E0E0E0;
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 10;
     }
+    .nav-logo { font-weight: 800; font-size: 18px; color: #1B5E20; text-decoration: none; }
+    .nav-back { font-size: 14px; color: #2E7D32; text-decoration: none; font-weight: 500; }
+    .nav-back:hover { text-decoration: underline; }
     header {
-      background: linear-gradient(135deg, #1976D2, #0D47A1);
-      color: #fff;
-      padding: 40px 24px 32px;
-      text-align: center;
+      background: linear-gradient(135deg, #1B5E20 0%, #43A047 100%);
+      color: #fff; padding: 56px 24px 48px; text-align: center;
     }
-    header .logo { font-size: 40px; margin-bottom: 8px; }
-    header h1 { font-size: 26px; font-weight: 700; }
-    header p { font-size: 14px; opacity: 0.8; margin-top: 6px; }
-    .container { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+    header .icon { font-size: 48px; margin-bottom: 16px; }
+    header h1 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 10px; }
+    header p { font-size: 15px; opacity: .85; max-width: 480px; margin: 0 auto; }
+    .container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
 
-    /* Section titles */
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #1976D2;
-      margin: 28px 0 12px;
+    /* Quick Tips */
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .tip-card {
+      background: #fff; border-radius: 14px; padding: 22px;
+      border: 1px solid #E8F5E9; text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .tip-icon { font-size: 32px; margin-bottom: 10px; }
+    .tip-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #1B5E20; }
+    .tip-card p { font-size: 13px; color: #666; }
+
+    /* Section title */
+    .section-label {
+      font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px;
+      color: #2E7D32; margin-bottom: 16px; margin-top: 40px;
     }
 
-    /* FAQ accordion */
+    /* FAQ */
     .faq-item {
-      background: #fff;
-      border-radius: 14px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      overflow: hidden;
+      background: #fff; border-radius: 14px; border: 1px solid #E8F5E9;
+      margin-bottom: 10px; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
     .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 18px 20px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #222;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 20px 24px; text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      color: #1A1A1A;
     }
-    .faq-question:hover { background: #F5F9FF; }
-    .faq-arrow {
-      font-size: 18px;
-      color: #1976D2;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
+    .faq-question:hover { background: #F1F8E9; }
+    .faq-chevron { font-size: 18px; transition: transform .25s; color: #2E7D32; flex-shrink: 0; }
     .faq-answer {
-      display: none;
-      padding: 0 20px 18px;
-      font-size: 15px;
-      color: #555;
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      padding: 0 24px;
+      font-size: 15px; color: #444;
     }
-    .faq-answer ul { padding-left: 20px; margin-top: 6px; }
-    .faq-answer li { margin-bottom: 5px; }
-    .faq-item.open .faq-answer { display: block; }
-    .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-    /* Quick tips */
-    .tip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
-      margin-bottom: 8px;
-    }
-    .tip-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 18px 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .tip-card .tip-icon { font-size: 28px; margin-bottom: 8px; }
-    .tip-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #222; }
-    .tip-card p { font-size: 13px; color: #666; line-height: 1.5; }
+    .faq-answer.open { max-height: 500px; padding: 0 24px 20px; }
+    .faq-chevron.open { transform: rotate(180deg); }
+    .faq-answer ul { padding-left: 18px; margin-top: 8px; }
+    .faq-answer ul li { margin-bottom: 6px; }
+    .faq-answer li::marker { color: #2E7D32; }
 
     /* Contact */
-    .contact-card {
-      background: linear-gradient(135deg, #1976D2, #0D47A1);
-      border-radius: 16px;
-      padding: 28px;
-      color: #fff;
-      text-align: center;
-      margin-top: 32px;
+    .contact-box {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
+      color: #fff; border-radius: 16px; padding: 40px 32px; text-align: center;
+      margin-top: 48px;
     }
-    .contact-card h2 { font-size: 18px; margin-bottom: 8px; }
-    .contact-card p { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
-    .contact-card a {
-      display: inline-block;
-      background: #fff;
-      color: #1976D2;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
+    .contact-box h2 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .contact-box p { opacity: .85; margin-bottom: 24px; font-size: 15px; }
+    .contact-btn {
+      display: inline-block; background: #fff; color: #1B5E20;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      font-weight: 700; font-size: 15px; margin: 6px;
     }
 
     footer {
-      text-align: center;
-      font-size: 13px;
-      color: #888;
-      padding: 24px 0 32px;
+      text-align: center; padding: 32px 24px;
+      background: #111; color: #888; font-size: 13px;
     }
+    footer a { color: #aaa; text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
+<nav>
+  <a class="nav-logo" href="index.html">GestãoBR</a>
+  <a class="nav-back" href="index.html">← Voltar ao início</a>
+</nav>
+
 <header>
-  <div class="logo">💸</div>
+  <div class="icon">💬</div>
   <h1>Central de Ajuda</h1>
-  <p>Gastos BR &nbsp;·&nbsp; Encontre respostas rápidas</p>
+  <p>Encontre respostas rápidas para as dúvidas mais comuns sobre o GestãoBR.</p>
 </header>
 
 <div class="container">
 
-  <!-- Quick tips -->
-  <div class="section-title">Primeiros passos</div>
-  <div class="tip-grid">
+  <!-- Quick Tips -->
+  <div class="section-label">🚀 Dicas rápidas para começar</div>
+  <div class="tips-grid">
     <div class="tip-card">
       <div class="tip-icon">➕</div>
       <h3>Adicionar transação</h3>
-      <p>Toque nos botões Despesa, Receita ou Transferência na tela inicial para registrar uma nova movimentação.</p>
+      <p>Toque no botão verde "+" na barra inferior para registrar despesa, receita ou transferência.</p>
     </div>
     <div class="tip-card">
-      <div class="tip-icon">🏦</div>
-      <h3>Criar uma conta</h3>
-      <p>Vá em Mais → Contas → toque no "+" para adicionar uma conta bancária, carteira ou cartão.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🗂️</div>
-      <h3>Categorias</h3>
-      <p>Vá em Mais → Categorias para criar categorias personalizadas e organizar seus gastos.</p>
+      <div class="tip-icon">🏷️</div>
+      <h3>Criar categoria</h3>
+      <p>Vá em Configurações → Categorias para criar categorias personalizadas com emoji e cor.</p>
     </div>
     <div class="tip-card">
       <div class="tip-icon">🎯</div>
-      <h3>Metas e Orçamentos</h3>
-      <p>Defina metas de economia e orçamentos mensais por categoria na aba Mais.</p>
+      <h3>Criar meta</h3>
+      <p>Na aba Metas, toque em "+" para criar uma meta com valor alvo, prazo e ícone.</p>
     </div>
     <div class="tip-card">
       <div class="tip-icon">📊</div>
-      <h3>Relatórios</h3>
-      <p>Acesse os relatórios pelo botão na tela inicial para ver gráficos de gastos por período e categoria.</p>
+      <h3>Ver relatórios</h3>
+      <p>Toque em "Relatórios" nos atalhos rápidos da tela inicial ou na aba inferior.</p>
     </div>
     <div class="tip-card">
-      <div class="tip-icon">🔄</div>
-      <h3>Trocar de mês</h3>
-      <p>Use as setas ‹ › no topo da tela inicial para navegar entre os meses e ver o histórico.</p>
+      <div class="tip-icon">🔒</div>
+      <h3>Biometria</h3>
+      <p>Ative em Configurações → Segurança → Autenticação biométrica para proteger o app.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">👁️</div>
+      <h3>Ocultar saldo</h3>
+      <p>Ative "Ocultar saldo" nas configurações para esconder valores em locais públicos.</p>
     </div>
   </div>
 
   <!-- FAQ -->
-  <div class="section-title">Perguntas frequentes</div>
+  <div class="section-label">❓ Perguntas Frequentes</div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
-      Preciso criar uma conta para usar o app?
-      <span class="faq-arrow">▾</span>
+      Como adicionar uma despesa parcelada?
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      Não. O Gastos BR funciona completamente offline e sem cadastro. Basta inserir seu nome na configuração inicial e começar a usar. Nenhum e-mail ou senha é necessário.
+      <p>Ao registrar uma despesa, selecione <strong>Cartão de Crédito</strong> como forma de pagamento. Aparecerá um campo "Parcelas" onde você pode escolher de 2x a 12x. O app registra o total e divide automaticamente.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como fazer transferência entre contas?
+      <span class="faq-chevron">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>Toque no botão "+" e selecione o tipo <strong>Transferência</strong>. Escolha a conta de origem e a conta de destino. O saldo será ajustado automaticamente nas duas contas sem afetar o total do patrimônio.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Por que não consigo criar mais de 3 metas?
+      <span class="faq-chevron">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>O plano gratuito permite até <strong>3 metas simultâneas</strong>. Para criar metas ilimitadas, faça upgrade para o plano Premium em Configurações → Premium. Você pode escolher entre Mensal (R$19,90), Anual (R$149,90) ou Vitalício (R$499,00).</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Como exportar meus dados para Excel?
+      <span class="faq-chevron">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>A exportação CSV é uma funcionalidade <strong>Premium</strong>. Com o plano Premium ativo, acesse Configurações → Relatórios → Exportar dados. O arquivo CSV gerado pode ser aberto no Excel, Google Sheets ou qualquer editor de planilhas.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
       Meus dados ficam salvos na nuvem?
-      <span class="faq-arrow">▾</span>
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      Não. Todos os dados são armazenados localmente no seu dispositivo. Isso significa total privacidade, mas também que os dados podem ser perdidos se você trocar de celular sem exportar antes. <strong>Recomendamos exportar seus dados regularmente</strong> (Configurações → Exportar dados → CSV).
+      <p><strong>Não.</strong> Todos os seus dados financeiros ficam armazenados <strong>apenas no seu dispositivo</strong>. Isso garante máxima privacidade — nenhuma informação financeira é enviada para nossos servidores. Por isso, recomendamos exportar um CSV periodicamente como backup.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
-      Como fazer backup dos meus dados?
-      <span class="faq-arrow">▾</span>
+      Perdi meu celular. Posso recuperar os dados?
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      Vá em <strong>Mais → Configurações → Exportar dados</strong>. O app irá gerar um arquivo CSV com todas as suas transações que você pode salvar no armazenamento do celular ou compartilhar via WhatsApp, e-mail, etc. Para restaurar em outro dispositivo, use a opção Importar dados.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="toggle(this)">
-      Como ativar o bloqueio biométrico?
-      <span class="faq-arrow">▾</span>
-    </button>
-    <div class="faq-answer">
-      Vá em <strong>Mais → Configurações → Segurança</strong> e ative a opção "Bloqueio biométrico". O app usará a impressão digital ou Face ID do seu celular para proteger o acesso. Certifique-se de ter biometria configurada nas configurações do Android.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="toggle(this)">
-      Como ocultar o saldo na tela inicial?
-      <span class="faq-arrow">▾</span>
-    </button>
-    <div class="faq-answer">
-      Vá em <strong>Mais → Configurações</strong> e ative a opção "Ocultar saldo". O saldo será substituído por "••••••" na tela inicial para mais privacidade.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="toggle(this)">
-      O que é o plano Premium?
-      <span class="faq-arrow">▾</span>
-    </button>
-    <div class="faq-answer">
-      O Premium remove todas as limitações da versão gratuita e os anúncios. Com o Premium você tem:
-      <ul>
-        <li>Transações, contas, metas, orçamentos e categorias ilimitados</li>
-        <li>Relatórios avançados</li>
-        <li>Exportação de dados em CSV</li>
-        <li>Sem anúncios</li>
-      </ul>
-      Disponível nos planos Mensal, Anual ou Vitalício. Acesse em <strong>Mais → Premium</strong>.
+      <p>Como os dados são armazenados localmente, não é possível recuperá-los automaticamente após perda ou troca do celular sem um backup prévio. Se você tinha o <strong>plano Premium</strong> e exportou um CSV, pode importar os dados no novo dispositivo. Por isso, exportações regulares são fortemente recomendadas.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
       Como cancelar a assinatura Premium?
-      <span class="faq-arrow">▾</span>
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      A assinatura é gerenciada pela Google Play Store. Para cancelar:
+      <p>As assinaturas são gerenciadas diretamente pela <strong>Google Play Store</strong>. Para cancelar:</p>
       <ul>
-        <li>Abra o Google Play Store</li>
-        <li>Toque no ícone do seu perfil → Pagamentos e assinaturas → Assinaturas</li>
-        <li>Selecione "Gastos BR" e toque em Cancelar assinatura</li>
+        <li>Abra a Google Play Store</li>
+        <li>Toque no ícone do seu perfil</li>
+        <li>Vá em "Pagamentos e assinaturas" → "Assinaturas"</li>
+        <li>Encontre GestãoBR e toque em "Cancelar"</li>
       </ul>
-      O acesso Premium permanece até o fim do período pago.
+      <p>Você mantém o acesso Premium até o fim do período pago.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
-      Posso usar o app em mais de um celular?
-      <span class="faq-arrow">▾</span>
+      Como ativar as notificações de lembretes?
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      Sim, mas os dados de cada celular são independentes (não há sincronização automática). Você pode exportar os dados de um dispositivo e importar no outro usando a função Exportar/Importar CSV.
+      <p>Acesse <strong>Configurações → Notificações</strong> e ative o interruptor. O GestãoBR enviará lembretes diários às 20h para você registrar os gastos do dia. Também envia alertas automáticos quando uma meta está próxima do prazo ou foi concluída.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
-      Atingi o limite de transações. O que fazer?
-      <span class="faq-arrow">▾</span>
+      Como mudar o tema ou idioma do app?
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      A versão gratuita permite até 100 transações. Para continuar registrando sem limite, assine o <strong>Premium</strong> (Mais → Premium). Como alternativa, você pode excluir transações antigas para liberar espaço.
+      <p>Acesse <strong>Configurações → Aparência</strong> para escolher entre os temas <strong>Verde</strong>, <strong>Azul</strong> ou <strong>Roxo</strong>. Para mudar o idioma, acesse <strong>Configurações → Idioma</strong> e selecione Português (BR) ou English.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggle(this)">
-      Como excluir todos os dados do app?
-      <span class="faq-arrow">▾</span>
+      Como adicionar foto do comprovante?
+      <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      Vá em <strong>Mais → Configurações → Apagar todos os dados</strong>. Essa ação é <strong>irreversível</strong> — todos os dados serão removidos permanentemente do dispositivo. Exporte seus dados antes se quiser mantê-los.
+      <p>Ao registrar uma transação, role para baixo e encontre o campo <strong>"Comprovante"</strong>. Toque nele para tirar uma foto com a câmera ou selecionar uma imagem da galeria. A foto fica associada à transação e pode ser visualizada nos detalhes.</p>
     </div>
   </div>
 
   <!-- Contact -->
-  <div class="contact-card">
-    <h2>Ainda tem dúvidas?</h2>
-    <p>Entre em contato com nosso suporte. Respondemos em até 48 horas.</p>
-    <a href="mailto:raustorevip@gmail.com">Enviar e-mail</a>
+  <div class="contact-box">
+    <h2>Não encontrou o que procurava?</h2>
+    <p>Nossa equipe responde em até 48 horas úteis.</p>
+    <a class="contact-btn" href="mailto:hotro.vieclamls@gmail.com">📧 Enviar e-mail</a>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 Gastos BR. Todos os direitos reservados.
+  <div style="margin-bottom:12px;">
+    <a href="index.html">Início</a>
+    <a href="privacy-policy.html">Política de Privacidade</a>
+    <a href="terms-of-service.html">Termos de Uso</a>
+  </div>
+  © 2026 GestãoBR. Todos os direitos reservados.
 </footer>
 
 <script>
   function toggle(btn) {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
+    const answer = btn.nextElementSibling;
+    const chevron = btn.querySelector('.faq-chevron');
+    answer.classList.toggle('open');
+    chevron.classList.toggle('open');
   }
 </script>
 
